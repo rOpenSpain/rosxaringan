@@ -38,8 +38,8 @@ name: instalacion
 Para usar esta plantilla, es necesario seguir los siguientes pasos:
 
 1. Copiar los archivos 
-[`rOpenSpain.css`](https://github.com/dieghernan/rosxarigan/blob/master/rOpenSpain.css) y 
-[`rOpenSpain.js`](https://github.com/dieghernan/rosxarigan/blob/master/rOpenSpain.css) 
+[`rOpenSpain.css`](https://github.com/rOpenSpain/rosxarigan/blob/master/rOpenSpain.css) y 
+[`rOpenSpain.js`](https://github.com/rOpenSpain/rosxarigan/blob/master/rOpenSpain.css) 
 en la carpeta de trabajo.
 
 2. Configurar la presentación `xarigan` con los siguientes parámetros:
@@ -54,8 +54,6 @@ output:
       ... 
 
 ```
-
-
 
 
 ---
@@ -388,3 +386,5 @@ class: center, middle, end-slide
 # Gracias
 
 Presentación creada con [**xaringan**](https://github.com/yihui/xaringan)
+
+GitHub repo: https://github.com/rOpenSpain/rosxarigan
