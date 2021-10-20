@@ -1,6 +1,6 @@
 ---
-title: "Plantilla para rOpenSpain"
-subtitle: "Para su uso en presentaciones de nuestros paquetes"  
+title: "Plantilla `xaringan` para rOpenSpain"
+subtitle: "Para su uso en presentaciones"  
 author: 
   - "Diego Hernangómez"
 date: '`r Sys.Date()`'
@@ -38,11 +38,11 @@ name: instalacion
 Para usar esta plantilla, es necesario seguir los siguientes pasos:
 
 1. Copiar los archivos 
-[`rOpenSpain.css`](https://github.com/rOpenSpain/rosxarigan/blob/master/rOpenSpain.css) y 
-[`rOpenSpain.js`](https://github.com/rOpenSpain/rosxarigan/blob/master/rOpenSpain.css) 
+`rOpenSpain.css` ([link](https://github.com/rOpenSpain/rosxaringan/blob/master/rOpenSpain.css)) y 
+`rOpenSpain.js`([link](https://github.com/rOpenSpain/rosxaringan/blob/master/rOpenSpain.css))
 en la carpeta de trabajo.
 
-2. Configurar la presentación `xarigan` con los siguientes parámetros:
+2. Configurar la presentación `xaringan` con los siguientes parámetros:
 
 ```yaml
 output:
@@ -387,4 +387,4 @@ class: center, middle, end-slide
 
 Presentación creada con [**xaringan**](https://github.com/yihui/xaringan)
 
-GitHub repo: https://github.com/rOpenSpain/rosxarigan
+GitHub repo: https://github.com/rOpenSpain/rosxaringan
