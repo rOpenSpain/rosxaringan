@@ -37,8 +37,10 @@ name: instalacion
 
 Para usar esta plantilla, es necesario seguir los siguientes pasos:
 
-1. Copiar los archivos `rOpenSpain.css` y `rOpenSpain.js` en la carpeta
-de trabajo.
+1. Copiar los archivos 
+[`rOpenSpain.css`](https://github.com/dieghernan/rosxarigan/blob/master/rOpenSpain.css) y 
+[`rOpenSpain.js`](https://github.com/dieghernan/rosxarigan/blob/master/rOpenSpain.css) 
+en la carpeta de trabajo.
 
 2. Configurar la presentación `xarigan` con los siguientes parámetros:
 
