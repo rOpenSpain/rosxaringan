@@ -1,0 +1,388 @@
+---
+title: "Plantilla para rOpenSpain"
+subtitle: "Para su uso en presentaciones de nuestros paquetes"  
+author: 
+  - "Diego Hernangómez"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    css: [default, rOpenSpain.css]
+    self_contained: true
+    nature:
+      beforeInit: "rOpenSpain.js"
+      slideNumberFormat: "%current%"
+      highlightStyle: github
+      highlightLines: true
+      ratio: 16:9
+      countIncrementalSlides: true
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  fig.width=9, fig.height=3.5, fig.retina=3,
+  out.width = "100%",
+  cache = FALSE,
+  echo = TRUE,
+  message = FALSE, 
+  warning = FALSE,
+  hiline = TRUE
+)
+```
+
+name: instalacion
+
+## Instalación
+
+Para usar esta plantilla, es necesario seguir los siguientes pasos:
+
+1. Copiar los archivos `rOpenSpain.css` y `rOpenSpain.js` en la carpeta
+de trabajo.
+
+2. Configurar la presentación `xarigan` con los siguientes parámetros:
+
+```yaml
+output:
+  xaringan::moon_reader:
+    css: [default, rOpenSpain.css]
+    nature:
+      beforeInit: "rOpenSpain.js"
+      
+      ... 
+
+```
+
+
+
+
+---
+
+layout: false
+
+class: inverse center middle
+
+# xaringan
+
+### /ʃaː.'riŋ.ɡan/
+
+---
+
+## Tipografía
+
+Los textos pueden estar en **negrita**, _cursiva_, ~~tachado~~, or `código inline`.
+
+[Link a otra slide](#instalacion).
+
+### Lorem Ipsum
+
+Dolor imperdiet nostra sapien scelerisque praesent curae metus facilisis dignissim tortor. 
+Lacinia neque mollis nascetur neque urna velit bibendum. 
+Himenaeos suspendisse leo varius mus risus sagittis aliquet venenatis duis nec.
+
+- Dolor cubilia nostra nunc sodales
+
+- Consectetur aliquet mauris blandit
+
+- Ipsum dis nec porttitor urna sed
+
+---
+name: colors
+
+## Colores
+
+.left-column[
+Texto
+
+[Link](#3)
+
+**Negrita**
+
+_Cursiva_
+
+`Inline`
+]
+
+.right-column[
+Lorem ipsum dolor sit amet, [consectetur adipiscing elit (link)](#3), 
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Erat nam at lectus urna.
+Pellentesque elit ullamcorper **dignissim cras tincidunt (negrita)** lobortis 
+feugiat. 
+_Eros donec ac odio tempor (cursiva)_ orci dapibus ultrices. 
+Id porta nibh venenatis cras sed felis eget velit aliquet.
+Aliquam id diam maecenas ultricies mi.
+Enim sit amet 
+`color("inline")`
+venenatis urna cursus eget nunc scelerisque viverra.
+]
+
+---
+
+# Aspecto importante o Slides Inversas `#`
+
+## Encabezados de slides `##`
+
+### Subapartados de slides `###`
+
+#### Texto destacado en negrita `####`
+
+Esto es un párrafo normal. Usa únicamente encabezados del 1 al 4.
+
+##### Posible, pero no se recomienda `#####`
+
+###### No uses h6 `######`
+
+
+---
+
+# Encabezados: Columna izquierda
+
+.left-column[
+## Primero
+
+## Segundo
+
+## Tercero
+]
+
+.right-column[
+Dolor quis aptent mus a dictum ultricies egestas.
+
+Amet egestas neque tempor fermentum proin massa!
+
+Dolor elementum fermentum pharetra lectus arcu pulvinar.
+]
+
+---
+layout: false
+
+class: inverse center middle
+
+# Cambio de sección
+
+--
+
+```
+class: inverse center middle
+```
+
+---
+layout: true
+
+
+## Bloques
+
+---
+
+### Citas
+
+> Esto es una cita.
+>
+> Cuando algo es lo suficientemente importante, lo haces incluso si las probabilidades de que salga bien no están a tu favor.
+>
+> _Elon Musk_
+
+---
+
+### Bloques de código
+
+#### R
+
+```{r eval=FALSE}
+ggplot(gapminder) +
+  aes(x = gdpPercap, y = lifeExp, size = pop, color = country) +
+  geom_point() +
+  facet_wrap(~year)
+```
+
+#### JavaScript
+
+```js
+var fun = function lang(l) {
+  dateformat.i18n = require('./lang/' + l)
+  return true;
+}
+```
+
+---
+
+### Mas código R
+
+```{r eval=FALSE}
+dplyr::starwars %>% dplyr::slice_sample(n = 4)
+```
+
+---
+
+
+```{r message=TRUE}
+message("Soy un mensaje")
+```
+
+--
+
+```{r warning=TRUE}
+warning("Soy un aviso...")
+```
+
+--
+
+```{r error=TRUE}
+stop("Tenemos un problema")
+```
+
+
+---
+layout: true
+
+## Tablas
+
+---
+exclude: `r if (requireNamespace("tibble", quietly=TRUE)) "false" else "true"`
+
+```{r eval=requireNamespace("tibble", quietly=TRUE)}
+tibble::as_tibble(mtcars)
+```
+
+---
+
+```{r}
+knitr::kable(head(mtcars), format = 'html')
+```
+
+---
+exclude: `r if (requireNamespace("DT", quietly=TRUE)) "false" else "true"`
+
+```{r eval=requireNamespace("DT", quietly=TRUE)}
+DT::datatable(head(mtcars), fillContainer = FALSE, options = list(pageLength = 4))
+```
+
+---
+layout: true
+
+## Listas
+
+---
+
+.pull-left[
+#### Una lista simple:
+
+*   Item foo
+*   Item bar
+*   Item baz
+*   Item zip
+]
+
+.pull-right[
+
+#### Y una numerada:
+
+1.  Item one
+1.  Item two
+1.  Item three
+1.  Item four
+]
+
+---
+
+### Lista anidada:
+
+- nivel 1 item
+  - nivel 2 item
+  - nivel 2 item
+    - nivel 3 item
+    - nivel 3 item
+- nivel 1 item
+  - nivel 2 item
+  - nivel 2 item
+  - nivel 2 item
+- nivel 1 item
+  - nivel 2 item
+  - nivel 2 item
+- nivel 1 item
+
+---
+
+### Mas anidados
+
+- nivel 1 item (ul)
+  1. nivel 2 item (ol)
+  1. nivel 2 item (ol)
+    - nivel 3 item (ul)
+    - nivel 3 item (ul)
+- nivel 1 item (ul)
+  1. nivel 2 item (ol)
+  1. nivel 2 item (ol)
+    - nivel 3 item (ul)
+    - nivel 3 item (ul)
+  1. nivel 4 item (ol)
+  1. nivel 4 item (ol)
+    - nivel 3 item (ul)
+    - nivel 3 item (ul)
+- nivel 1 item (ul)
+
+---
+layout: true
+
+## Gráficos
+
+---
+
+```{r plot-example, eval=requireNamespace("ggplot2", quietly=TRUE)}
+library(ggplot2)
+(g <- ggplot(mpg) + aes(hwy, cty, color = class) + geom_point())
+```
+
+---
+
+```{r plot-example-other, eval=requireNamespace("ggplot2", quietly=TRUE)}
+
+library(mapSpain)
+
+country <- esp_get_country()
+
+ggplot(country) +
+  geom_sf(fill = "cornsilk", color = "#887e6a")
+
+
+```
+---
+
+### HTML Widgets
+
+```{r out.width='100%', eval=require('leaflet'), out.height="40%"}
+library(leaflet)
+  leaflet() %>%
+  setView(lat = 40.4166, lng = -3.7038400, zoom = 7) %>%
+  addProviderEspTiles(provider = "IDErioja")
+```
+
+
+---
+layout: false
+
+## Imagen cuadrada
+
+<center><img src="https://octodex.github.com/images/labtocat.png" height="400px" /></center>
+
+.footnote[Soy una nota al pie]
+
+---
+
+## Dos imágenes
+
+.pull-left[
+![](https://octodex.github.com/images/motherhubbertocat.png)
+]
+
+.pull-right[
+![](https://octodex.github.com/images/dinotocat.png)
+]
+
+---
+class: center, middle, end-slide
+
+# Gracias
+
+Presentación creada con [**xaringan**](https://github.com/yihui/xaringan)
