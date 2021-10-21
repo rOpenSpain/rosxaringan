@@ -1,0 +1,51 @@
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+name: render-xaringan
+
+jobs:
+  render-xaringan:
+    runs-on: macOS-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: r-lib/actions/setup-r@master
+
+      - uses: r-lib/actions/setup-pandoc@master
+
+
+      - name: Restore R package cache
+        uses: actions/cache@v2.1.6
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
+
+      - name: Install dependencies
+        run: |
+          install.packages('remotes')
+          
+          remotes::install_cran(c("xaringan", "knitr", "rmarkdown", "tidyverse", "DT", "leaflet"), dependencies = TRUE, type="binary")
+        
+        shell: Rscript {0}
+        
+      - name: Render
+        run: |
+          rmarkdown::render('index.Rmd')
+          
+        
+        shell: Rscript {0}
+
+      - name: Commit results
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add -A
+          git commit -m 'Update xaringan' || echo "No changes to commit"
+          git push origin || echo "No changes to commit"
