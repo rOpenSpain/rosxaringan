@@ -31,7 +31,7 @@ jobs:
         run: |
           install.packages('remotes')
           
-          remotes::install_cran(c("xaringan", "knitr", "rmarkdown", "tidyverse", "DT", "leaflet"), dependencies = TRUE, type="binary")
+          remotes::install_cran(c("xaringan", "knitr", "rmarkdown", "tidyverse", "DT", "leaflet", "mapSpain"), dependencies = TRUE, type="binary")
         
         shell: Rscript {0}
         
