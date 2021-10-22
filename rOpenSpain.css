@@ -102,6 +102,7 @@ h1, h2, h3 {
 }
 .remark-code {
   font-size: var(--code-font-size);
+  border: 1px solid #cccccc;
 }
 .remark-inline-code {
   font-size: var(--code-inline-font-size);
