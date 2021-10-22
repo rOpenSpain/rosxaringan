@@ -4,7 +4,7 @@
     <title>Plantilla xaringan para rOpenSpain</title>
     <meta charset="utf-8" />
     <meta name="author" content="Diego Hernangómez" />
-    <meta name="date" content="2021-10-21" />
+    <meta name="date" content="2021-10-22" />
     <style type="text/css">a, a > code {
 color: rgb(249, 38, 114);
 text-decoration: none;
@@ -5879,6 +5879,7 @@ font-family: var(--code-font-family), Menlo, Consolas, Monaco, Liberation Mono, 
 }
 .remark-code {
 font-size: var(--code-font-size);
+border: 1px solid #cccccc;
 }
 .remark-inline-code {
 font-size: var(--code-inline-font-size);
@@ -6105,7 +6106,7 @@ class: center, middle, inverse, title-slide
 # Plantilla <code>xaringan</code> para rOpenSpain
 ## Para su uso en presentaciones
 ### Diego Hernangómez
-### 2021-10-21
+### 2021-10-22
 
 ---
 
@@ -6482,8 +6483,8 @@ exclude: false
 DT::datatable(head(mtcars), fillContainer = FALSE, options = list(pageLength = 4))
 ```
 
-<div id="htmlwidget-2a63b95da5021546293e" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2a63b95da5021546293e">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant"],[21,21,22.8,21.4,18.7,18.1],[6,6,4,6,8,6],[160,160,108,258,360,225],[110,110,93,110,175,105],[3.9,3.9,3.85,3.08,3.15,2.76],[2.62,2.875,2.32,3.215,3.44,3.46],[16.46,17.02,18.61,19.44,17.02,20.22],[0,0,1,1,0,1],[1,1,1,0,0,0],[4,4,4,3,3,3],[4,4,1,1,2,1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":4,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[4,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-366f98ce0c97bdab7285" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-366f98ce0c97bdab7285">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant"],[21,21,22.8,21.4,18.7,18.1],[6,6,4,6,8,6],[160,160,108,258,360,225],[110,110,93,110,175,105],[3.9,3.9,3.85,3.08,3.15,2.76],[2.62,2.875,2.32,3.215,3.44,3.46],[16.46,17.02,18.61,19.44,17.02,20.22],[0,0,1,1,0,1],[1,1,1,0,0,0],[4,4,4,3,3,3],[4,4,1,1,2,1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":4,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[4,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
 ---
 layout: true
@@ -6589,8 +6590,8 @@ library(leaflet)
   addProviderEspTiles(provider = &quot;IDErioja&quot;)
 ```
 
-<div id="htmlwidget-1a74050aff5488a9faf3" style="width:100%;height:40%;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1a74050aff5488a9faf3">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[40.4166,-3.70384],7,[]],"calls":[{"method":"addTiles","args":["https://rts.larioja.org/wmts/mapa_base_rioja?service=WMTS&request=GetTile&version=1.0.0&Format=image/png&layer=mapa_base_rioja&style=default&tilematrixset=GoogleMapsCompatible&TileMatrix={z}&TileRow={y}&TileCol={x}",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"CC BY 4.0 <a href='https://www.iderioja.org'>www.iderioja.org<\/a>"}]}]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-e978fc98afaa3e076892" style="width:100%;height:40%;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e978fc98afaa3e076892">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[40.4166,-3.70384],7,[]],"calls":[{"method":"addTiles","args":["https://rts.larioja.org/wmts/mapa_base_rioja?service=WMTS&request=GetTile&version=1.0.0&Format=image/png&layer=mapa_base_rioja&style=default&tilematrixset=GoogleMapsCompatible&TileMatrix={z}&TileRow={y}&TileCol={x}",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"CC BY 4.0 <a href='https://www.iderioja.org'>www.iderioja.org<\/a>"}]}]},"evals":[],"jsHooks":[]}</script>
 
 
 ---
