@@ -39,7 +39,7 @@ Para usar esta plantilla, es necesario seguir los siguientes pasos:
 
 1. Copiar los archivos 
 `rOpenSpain.css` ([link](https://github.com/rOpenSpain/rosxaringan/blob/master/rOpenSpain.css)) y 
-`rOpenSpain.js`([link](https://github.com/rOpenSpain/rosxaringan/blob/master/rOpenSpain.css))
+`rOpenSpain.js`([link](https://github.com/rOpenSpain/rosxaringan/blob/master/rOpenSpain.js))
 en la carpeta de trabajo.
 
 2. Configurar la presentación `xaringan` con los siguientes parámetros:
