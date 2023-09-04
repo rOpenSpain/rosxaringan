@@ -4,7 +4,7 @@
     <title>Plantilla xaringan para rOpenSpain</title>
     <meta charset="utf-8" />
     <meta name="author" content="Diego Hernangómez" />
-    <meta name="date" content="2023-06-09" />
+    <meta name="date" content="2023-09-04" />
     <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
 document.addEventListener('DOMContentLoaded', function(e) {
@@ -1010,7 +1010,7 @@ flex-basis: 400px;
 
 // some helper functions: using a global object DTWidget so that it can be used
 // in JS() code, e.g. datatable(options = list(foo = JS('code'))); unlike R's
-// dynamic scoping, when 'code' is eval()'ed, JavaScript does not know objects
+// dynamic scoping, when 'code' is eval'ed, JavaScript does not know objects
 // from the "parent frame", e.g. JS('DTWidget') will not work unless it was made
 // a global object
 var DTWidget = {};
@@ -2561,7 +2561,7 @@ margin: 0;
 border-radius: 0;
 border: none;
 }
-.info {
+.leaflet .info {
 padding: 6px 8px;
 font: 14px/16px Arial, Helvetica, sans-serif;
 background: white;
@@ -2569,17 +2569,17 @@ background: rgba(255,255,255,0.8);
 box-shadow: 0 0 15px rgba(0,0,0,0.2);
 border-radius: 5px;
 }
-.legend {
+.leaflet .legend {
 line-height: 18px;
 color: #555;
 }
-.legend svg text {
+.leaflet .legend svg text {
 fill: #555;
 }
-.legend svg line {
+.leaflet .legend svg line {
 stroke: #555;
 }
-.legend i {
+.leaflet .legend i {
 width: 18px;
 height: 18px;
 margin-right: 4px;
@@ -3494,22 +3494,26 @@ function preventUnintendedZoomOnScroll(map) {
   });
   (0, _jquery2["default"])(document).on("mousemove", "*", function (e) {
     // Did the mouse really move?
-    if (lastScreen.x !== null && e.screenX !== lastScreen.x || e.screenY !== lastScreen.y) {
-      // It really moved. Enable zooming.
+    if (map.options.scrollWheelZoom) {
+      if (lastScreen.x !== null && e.screenX !== lastScreen.x || e.screenY !== lastScreen.y) {
+        // It really moved. Enable zooming.
+        map.scrollWheelZoom.enable();
+        lastScreen = {
+          x: null,
+          y: null
+        };
+      }
+    }
+  });
+  (0, _jquery2["default"])(document).on("mousedown", ".leaflet", function (e) {
+    // Clicking always enables zooming.
+    if (map.options.scrollWheelZoom) {
       map.scrollWheelZoom.enable();
       lastScreen = {
         x: null,
         y: null
       };
     }
-  });
-  (0, _jquery2["default"])(document).on("mousedown", ".leaflet", function (e) {
-    // Clicking always enables zooming.
-    map.scrollWheelZoom.enable();
-    lastScreen = {
-      x: null,
-      y: null
-    };
   });
 }
 
@@ -6017,7 +6021,7 @@ class: center, middle, inverse, title-slide
 ### Diego Hernangómez
 ]
 .date[
-### 2023-06-09
+### 2023-09-04
 ]
 
 ---
@@ -6395,8 +6399,8 @@ exclude: false
 DT::datatable(head(mtcars), fillContainer = FALSE, options = list(pageLength = 4))
 ```
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-c2f5308ab86fe383fd28" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-c2f5308ab86fe383fd28">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant"],[21,21,22.8,21.4,18.7,18.1],[6,6,4,6,8,6],[160,160,108,258,360,225],[110,110,93,110,175,105],[3.9,3.9,3.85,3.08,3.15,2.76],[2.62,2.875,2.32,3.215,3.44,3.46],[16.46,17.02,18.61,19.44,17.02,20.22],[0,0,1,1,0,1],[1,1,1,0,0,0],[4,4,4,3,3,3],[4,4,1,1,2,1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":4,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[4,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-f507d45d96345c748901" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f507d45d96345c748901">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant"],[21,21,22.8,21.4,18.7,18.1],[6,6,4,6,8,6],[160,160,108,258,360,225],[110,110,93,110,175,105],[3.9,3.9,3.85,3.08,3.15,2.76],[2.62,2.875,2.32,3.215,3.44,3.46],[16.46,17.02,18.61,19.44,17.02,20.22],[0,0,1,1,0,1],[1,1,1,0,0,0],[4,4,4,3,3,3],[4,4,1,1,2,1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":4,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[4,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
 ---
 layout: true
@@ -6502,8 +6506,8 @@ library(leaflet)
   addProviderEspTiles(provider = &quot;IDErioja&quot;)
 ```
 
-<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-725032d014a05b825d79" style="width:100%;height:40%;"></div>
-<script type="application/json" data-for="htmlwidget-725032d014a05b825d79">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[40.4166,-3.70384],7,[]],"calls":[{"method":"addTiles","args":["https://rts.larioja.org/wmts/mapa_base_rioja?service=WMTS&request=GetTile&version=1.0.0&format=image/png&layer=mapa_base_rioja&style=default&tilematrixset=GoogleMapsCompatible&tilematrix={z}&tilerow={y}&tilecol={x}",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"minzoom":0,"maxzoom":18,"tilesize":256,"errortileurl":"","nowrap":false,"zoomoffset":0,"zoomreverse":false,"zindex":1,"detectretina":false,"attribution":"CC BY 4.0 <a href='https://www.iderioja.org'>www.iderioja.org<\/a>"}]}]},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-692169e922fed3bf70c3" style="width:100%;height:40%;"></div>
+<script type="application/json" data-for="htmlwidget-692169e922fed3bf70c3">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[40.4166,-3.70384],7,[]],"calls":[{"method":"addTiles","args":["https://rts.larioja.org/mapa-base/rioja/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"minzoom":0,"maxzoom":18,"tilesize":256,"errortileurl":"","nowrap":false,"zoomoffset":0,"zoomreverse":false,"zindex":1,"detectretina":false,"attribution":"CC BY 4.0 <a href='https://www.iderioja.org'>www.iderioja.org<\/a>"}]}]},"evals":[],"jsHooks":[]}</script>
 
 
 ---
